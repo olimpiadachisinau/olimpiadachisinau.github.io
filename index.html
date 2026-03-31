@@ -3,333 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Olimpiade Școlare Chișinău</title>
-
 <style>
-
-/* ===== ROOT THEME ===== */
-:root {
-    --bg: #f4f6f9;
-    --text: #111;
-    --card: white;
-    --accent: #003366;
-}
-
-body.dark {
-    --bg: #121212;
-    --text: #eee;
-    --card: #1e1e1e;
-    --accent: #4da3ff;
-}
-
-/* ===== GLOBAL ===== */
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial;
-    background: var(--bg);
-    color: var(--text);
-}
-
 /* ===== HEADER ===== */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--accent);
+    background: linear-gradient(90deg, #002147, #00509e);
     color: white;
-    padding: 15px 30px;
+    padding: 20px 40px;
 }
 
-.title {
-    font-size: 20px;
-    font-weight: bold;
+header h1 {
+    margin: 0;
+    font-size: 28px;
     cursor: pointer;
 }
 
-/* NAV */
-nav a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-    position: relative;
+/* ===== NAVBAR ===== */
+nav {
+    background: #003366;
+    padding: 10px 40px;
 }
 
-/* HOVER ANIMATION */
+nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Hover underline */
 nav a::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 0%;
     height: 2px;
     bottom: -3px;
     left: 0;
     background: white;
-    transition: 0.3s;
+    transition: width 0.3s;
 }
 
 nav a:hover::after {
     width: 100%;
 }
 
-/* THEME BUTTON */
+/* Theme toggle icon */
 .theme-toggle {
-    cursor: pointer;
+    display: inline-block;
     width: 22px;
     height: 22px;
     border-radius: 50%;
     background: linear-gradient(90deg, white 50%, black 50%);
     border: 1px solid white;
-}
-
-/* ===== LAYOUT ===== */
-.wrapper {
-    display: flex;
-}
-
-/* ===== LEFT NEWS ===== */
-.sidebar {
-    width: 260px;
-    padding: 20px;
-}
-
-.news-box {
-    background: var(--card);
-    padding: 10px;
-    margin-bottom: 15px;
-    border-left: 4px solid var(--accent);
-}
-
-.news-box h4 {
-    margin: 0;
-    font-size: 14px;
-}
-
-/* ===== MAIN ===== */
-.content {
-    flex: 1;
-    padding: 30px;
-}
-
-/* CARDS */
-.card {
-    background: var(--card);
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 6px;
-}
-
-/* GRID BUTTONS */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-}
-
-.grid button {
-    padding: 10px;
-    border: none;
-    background: var(--accent);
-    color: white;
     cursor: pointer;
-    border-radius: 4px;
-    transition: 0.2s;
+    margin-left: 20px;
 }
 
-/* BUTTON HOVER */
-.grid button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    margin-top: 40px;
-    padding: 30px;
-    background: var(--accent);
-    color: white;
-    text-align: center;
-}
-
-.log {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(90deg, #002147, #00509e);
-    padding: 15px 30px;
-    color: white;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-    .wrapper {
-        flex-direction: column;
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
     }
-
-    .sidebar {
-        width: 100%;
-    }
+    .theme-toggle { margin-left: 0; margin-top: 10px; }
 }
-
 </style>
 </head>
-
 <body>
 
-<header class="topbar">
-
-    <div class="title" onclick="location.href='index.html'">
-        Olimpiade Școlare din municipiu Chișinău
-    </div>
-
-    <nav>
-        <a href="discipline.html">Discipline</a>
-        <a href="noutati.html">Noutăți</a>
-        <a href="clasament.html">Clasament</a>
-        <a href="regulament.html">Regulament</a>
-        <a href="resurse.html">Resurse</a>
-    </nav>
-
-    <div class="theme-toggle" onclick="toggleTheme()"></div>
-
+<header>
+    <h1 onclick="location.href='index.html'">Olimpiade Școlare din municipiu Chișinău</h1>
 </header>
-    
-<div class="wrapper">
 
-    <!-- LEFT NEWS -->
-    <div class="sidebar">
-
-        <h3>Noutăți recente</h3>
-
-        <div class="news-box">
-            <h4>Etapa municipală anunțată</h4>
-            <p>Detalii despre desfășurare.</p>
-        </div>
-
-        <div class="news-box">
-            <h4>Rezultate publicate</h4>
-            <p>Clasamentele sunt disponibile.</p>
-        </div>
-
-        <div class="news-box">
-            <h4>Modificări regulament</h4>
-            <p>Actualizări recente.</p>
-        </div>
-
-    </div>
-
-    <!-- MAIN -->
-    <div class="content">
-
-        <!-- DESPRE -->
-        <div class="card">
-            <h2>Despre site</h2>
-            <p><!-- EDIT --> Adaugă descrierea platformei aici.</p>
-        </div>
-
-        <!-- ETAPA SECTOR -->
-        <div class="card">
-            <h2>Etapa Sector</h2>
-
-            <div class="grid">
-                <!-- 15 BUTTONS -->
-                <button>Disciplina 1</button>
-                <button>Disciplina 2</button>
-                <button>Disciplina 3</button>
-                <button>Disciplina 4</button>
-                <button>Disciplina 5</button>
-                <button>Disciplina 6</button>
-                <button>Disciplina 7</button>
-                <button>Disciplina 8</button>
-                <button>Disciplina 9</button>
-                <button>Disciplina 10</button>
-                <button>Disciplina 11</button>
-                <button>Disciplina 12</button>
-                <button>Disciplina 13</button>
-                <button>Disciplina 14</button>
-                <button>Disciplina 15</button>
-            </div>
-        </div>
-
-        <!-- ETAPA MUNICIPALA -->
-        <div class="card">
-            <h2>Etapa Municipală</h2>
-
-            <div class="grid">
-                <!-- 14 BUTTONS -->
-                <button>Disciplina 1</button>
-                <button>Disciplina 2</button>
-                <button>Disciplina 3</button>
-                <button>Disciplina 4</button>
-                <button>Disciplina 5</button>
-                <button>Disciplina 6</button>
-                <button>Disciplina 7</button>
-                <button>Disciplina 8</button>
-                <button>Disciplina 9</button>
-                <button>Disciplina 10</button>
-                <button>Disciplina 11</button>
-                <button>Disciplina 12</button>
-                <button>Disciplina 13</button>
-                <button>Disciplina 14</button>
-            </div>
-        </div>
-
-        <!-- ETAPA REPUBLICANA -->
-        <div class="card">
-            <h2>Etapa Republicană</h2>
-
-            <div class="grid">
-                <!-- 24 BUTTONS -->
-                <button>Disciplina 1</button>
-                <button>Disciplina 2</button>
-                <button>Disciplina 3</button>
-                <button>Disciplina 4</button>
-                <button>Disciplina 5</button>
-                <button>Disciplina 6</button>
-                <button>Disciplina 7</button>
-                <button>Disciplina 8</button>
-                <button>Disciplina 9</button>
-                <button>Disciplina 10</button>
-                <button>Disciplina 11</button>
-                <button>Disciplina 12</button>
-                <button>Disciplina 13</button>
-                <button>Disciplina 14</button>
-                <button>Disciplina 15</button>
-                <button>Disciplina 16</button>
-                <button>Disciplina 17</button>
-                <button>Disciplina 18</button>
-                <button>Disciplina 19</button>
-                <button>Disciplina 20</button>
-                <button>Disciplina 21</button>
-                <button>Disciplina 22</button>
-                <button>Disciplina 23</button>
-                <button>Disciplina 24</button>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<footer>
-
-    <div class="log">
-        Ultima modificare: 31.03.2026 — Structură inițială creată
-    </div>
-
-    © 2026 Mîrza Damian
-
-</footer>
-
-<script>
-function toggleTheme() {
-    document.body.classList.toggle("dark");
-}
-</script>
+<nav>
+    <a href="discipline.html">Discipline</a>
+    <a href="noutati.html">Noutăți</a>
+    <a href="clasament.html">Clasament</a>
+    <a href="regulament.html">Regulament</a>
+    <div class="theme-toggle" onclick="document.body.classList.toggle('dark')"></div>
+</nav>
 
 </body>
 </html>
