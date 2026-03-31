@@ -1,65 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
 <meta charset="UTF-8">
-<title>Local Mathematical Olympiad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Olimpiade Școlare Chișinău</title>
 
 <style>
+
+/* ===== ROOT THEME ===== */
+:root {
+    --bg: #f4f6f9;
+    --text: #111;
+    --card: white;
+    --accent: #003366;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #eee;
+    --card: #1e1e1e;
+    --accent: #4da3ff;
+}
+
+/* ===== GLOBAL ===== */
 body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f4f6f9;
+    font-family: "Segoe UI", Arial;
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
-    background: linear-gradient(90deg, #002147, #00509e);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--accent);
     color: white;
-    padding: 20px 40px;
+    padding: 15px 30px;
 }
 
-header h1 {
-    margin: 0;
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* NAVBAR */
-nav {
-    background: #003366;
-    padding: 10px 40px;
-}
-
+/* NAV */
 nav a {
+    margin: 0 10px;
     color: white;
-    margin-right: 20px;
     text-decoration: none;
-    font-weight: 500;
+    position: relative;
 }
 
-/* LAYOUT */
+/* HOVER ANIMATION */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background: white;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* THEME BUTTON */
+.theme-toggle {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, white 50%, black 50%);
+    border: 1px solid white;
+}
+
+/* ===== LAYOUT ===== */
 .wrapper {
     display: flex;
 }
 
-/* SIDEBAR (IMO-style) */
+/* ===== LEFT NEWS ===== */
 .sidebar {
-    width: 240px;
-    background: white;
+    width: 260px;
     padding: 20px;
-    border-right: 1px solid #ddd;
 }
 
-.sidebar h3 {
-    margin-top: 0;
+.news-box {
+    background: var(--card);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
 }
 
-.sidebar a {
-    display: block;
-    margin: 8px 0;
-    color: #003366;
-    text-decoration: none;
+.news-box h4 {
+    margin: 0;
+    font-size: 14px;
 }
 
-/* MAIN CONTENT (Fractal-like clean) */
+/* ===== MAIN ===== */
 .content {
     flex: 1;
     padding: 30px;
@@ -67,111 +112,193 @@ nav a {
 
 /* CARDS */
 .card {
-    background: white;
+    background: var(--card);
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* TABLE */
-table {
-    width: 100%;
-    border-collapse: collapse;
+/* GRID BUTTONS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
 }
 
-table th, table td {
+.grid button {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #002147;
+    border: none;
+    background: var(--accent);
     color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
 }
-</style>
 
+/* BUTTON HOVER */
+.grid button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+}
+
+.log {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1><!-- EDIT --> Local Mathematical Olympiad</h1>
-</header>
 
-<nav>
-    <!-- EDIT -->
-    <a href="#">Home</a>
-    <a href="#">Results</a>
-    <a href="#">Problems</a>
-    <a href="#">Participants</a>
-    <a href="#">Statistics</a>
-</nav>
+    <div class="title" onclick="location.href='index.html'">
+        Olimpiade Școlare din municipiu Chișinău
+    </div>
+
+    <nav>
+        <a href="discipline.html">Discipline</a>
+        <a href="noutati.html">Noutăți</a>
+        <a href="clasament.html">Clasament</a>
+        <a href="regulament.html">Regulament</a>
+    </nav>
+
+    <div class="theme-toggle" onclick="toggleTheme()"></div>
+
+</header>
 
 <div class="wrapper">
 
-    <!-- SIDEBAR -->
+    <!-- LEFT NEWS -->
     <div class="sidebar">
-        <h3>Navigation</h3>
 
-        <!-- EDIT -->
-        <a href="#">Latest Edition</a>
-        <a href="#">Past Editions</a>
-        <a href="#">Top Students</a>
-        <a href="#">Regulations</a>
+        <h3>Noutăți recente</h3>
+
+        <div class="news-box">
+            <h4>Etapa municipală anunțată</h4>
+            <p>Detalii despre desfășurare.</p>
+        </div>
+
+        <div class="news-box">
+            <h4>Rezultate publicate</h4>
+            <p>Clasamentele sunt disponibile.</p>
+        </div>
+
+        <div class="news-box">
+            <h4>Modificări regulament</h4>
+            <p>Actualizări recente.</p>
+        </div>
+
     </div>
 
     <!-- MAIN -->
     <div class="content">
 
-        <!-- ABOUT -->
+        <!-- DESPRE -->
         <div class="card">
-            <h2>About</h2>
-            <p>
-                <!-- EDIT -->
-                This platform hosts results, problems, and statistics
-                for the Local Mathematical Olympiad.
-            </p>
+            <h2>Despre site</h2>
+            <p><!-- EDIT --> Adaugă descrierea platformei aici.</p>
         </div>
 
-        <!-- NEWS -->
+        <!-- ETAPA SECTOR -->
         <div class="card">
-            <h2>Latest News</h2>
+            <h2>Etapa Sector</h2>
 
-            <p><strong>Olympiad 2026 announced</strong></p>
-            <p>The competition will take place in <!-- city -->.</p>
-
-            <p><strong>Results published</strong></p>
-            <p>Final rankings are now available.</p>
+            <div class="grid">
+                <!-- 15 BUTTONS -->
+                <button>Disciplina 1</button>
+                <button>Disciplina 2</button>
+                <button>Disciplina 3</button>
+                <button>Disciplina 4</button>
+                <button>Disciplina 5</button>
+                <button>Disciplina 6</button>
+                <button>Disciplina 7</button>
+                <button>Disciplina 8</button>
+                <button>Disciplina 9</button>
+                <button>Disciplina 10</button>
+                <button>Disciplina 11</button>
+                <button>Disciplina 12</button>
+                <button>Disciplina 13</button>
+                <button>Disciplina 14</button>
+                <button>Disciplina 15</button>
+            </div>
         </div>
 
-        <!-- RESULTS PREVIEW -->
+        <!-- ETAPA MUNICIPALA -->
         <div class="card">
-            <h2>Top Results (Preview)</h2>
+            <h2>Etapa Municipală</h2>
 
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>School</th>
-                    <th>Score</th>
-                </tr>
+            <div class="grid">
+                <!-- 14 BUTTONS -->
+                <button>Disciplina 1</button>
+                <button>Disciplina 2</button>
+                <button>Disciplina 3</button>
+                <button>Disciplina 4</button>
+                <button>Disciplina 5</button>
+                <button>Disciplina 6</button>
+                <button>Disciplina 7</button>
+                <button>Disciplina 8</button>
+                <button>Disciplina 9</button>
+                <button>Disciplina 10</button>
+                <button>Disciplina 11</button>
+                <button>Disciplina 12</button>
+                <button>Disciplina 13</button>
+                <button>Disciplina 14</button>
+            </div>
+        </div>
 
-                <!-- EDIT -->
-                <tr>
-                    <td>John Doe</td>
-                    <td>High School #1</td>
-                    <td>42</td>
-                </tr>
+        <!-- ETAPA REPUBLICANA -->
+        <div class="card">
+            <h2>Etapa Republicană</h2>
 
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>High School #2</td>
-                    <td>40</td>
-                </tr>
-            </table>
+            <div class="grid">
+                <!-- 24 BUTTONS -->
+                <button>Disciplina 1</button>
+                <button>Disciplina 2</button>
+                <button>Disciplina 3</button>
+                <button>Disciplina 4</button>
+                <button>Disciplina 5</button>
+                <button>Disciplina 6</button>
+                <button>Disciplina 7</button>
+                <button>Disciplina 8</button>
+                <button>Disciplina 9</button>
+                <button>Disciplina 10</button>
+                <button>Disciplina 11</button>
+                <button>Disciplina 12</button>
+                <button>Disciplina 13</button>
+                <button>Disciplina 14</button>
+                <button>Disciplina 15</button>
+                <button>Disciplina 16</button>
+                <button>Disciplina 17</button>
+                <button>Disciplina 18</button>
+                <button>Disciplina 19</button>
+                <button>Disciplina 20</button>
+                <button>Disciplina 21</button>
+                <button>Disciplina 22</button>
+                <button>Disciplina 23</button>
+                <button>Disciplina 24</button>
+            </div>
         </div>
 
     </div>
@@ -179,8 +306,20 @@ footer {
 </div>
 
 <footer>
-    © 2026 Local Mathematical Olympiad
+
+    <div class="log">
+        Ultima modificare: 31.03.2026 — Structură inițială creată
+    </div>
+
+    © 2026 Mîrza Damian
+
 </footer>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
