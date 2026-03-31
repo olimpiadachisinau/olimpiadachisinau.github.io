@@ -7,33 +7,24 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #ffffff;
-}
-
-/* TOP BAR */
-.topbar {
-    background: #002147;
-    color: white;
-    padding: 10px 40px;
-    font-size: 14px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f9;
 }
 
 /* HEADER */
 header {
-    background: #003366;
+    background: linear-gradient(90deg, #002147, #00509e);
     color: white;
     padding: 20px 40px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 nav {
-    background: #00509e;
+    background: #003366;
     padding: 10px 40px;
 }
 
@@ -41,51 +32,65 @@ nav a {
     color: white;
     margin-right: 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* MAIN LAYOUT */
-.main {
+/* LAYOUT */
+.wrapper {
     display: flex;
 }
 
-/* LEFT MENU */
+/* SIDEBAR (IMO-style) */
 .sidebar {
-    width: 250px;
-    background: #f2f2f2;
+    width: 240px;
+    background: white;
     padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar h3 {
+    margin-top: 0;
 }
 
 .sidebar a {
     display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
+    margin: 8px 0;
     color: #003366;
+    text-decoration: none;
 }
 
-/* CONTENT */
+/* MAIN CONTENT (Fractal-like clean) */
 .content {
     flex: 1;
     padding: 30px;
 }
 
-/* NEWS */
-.news-item {
-    border-bottom: 1px solid #ccc;
+/* CARDS */
+.card {
+    background: white;
+    padding: 20px;
     margin-bottom: 20px;
-    padding-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 /* FOOTER */
 footer {
-    background: #002147;
-    color: white;
     text-align: center;
     padding: 15px;
+    background: #002147;
+    color: white;
 }
 </style>
 
@@ -93,73 +98,86 @@ footer {
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-    <!-- EDIT -->
-    IMO 2026 | IMO 2027
-</div>
-
-<!-- HEADER -->
 <header>
     <h1><!-- EDIT --> Local Mathematical Olympiad</h1>
 </header>
 
-<!-- NAV -->
 <nav>
-    <!-- EDIT LINKS -->
+    <!-- EDIT -->
     <a href="#">Home</a>
-    <a href="#">Countries</a>
     <a href="#">Results</a>
     <a href="#">Problems</a>
+    <a href="#">Participants</a>
     <a href="#">Statistics</a>
-    <a href="#">About</a>
 </nav>
 
-<div class="main">
+<div class="wrapper">
 
     <!-- SIDEBAR -->
     <div class="sidebar">
         <h3>Navigation</h3>
 
         <!-- EDIT -->
-        <a href="#">Latest Results</a>
-        <a href="#">Participating Schools</a>
-        <a href="#">Past Olympiads</a>
-        <a href="#">Hall of Fame</a>
+        <a href="#">Latest Edition</a>
+        <a href="#">Past Editions</a>
+        <a href="#">Top Students</a>
+        <a href="#">Regulations</a>
     </div>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <div class="content">
 
-        <h2>Welcome</h2>
-        <p>
-            <!-- EDIT -->
-            This website provides information about the Local Mathematical Olympiad,
-            including results, problems, and statistics.
-        </p>
-
-        <h2>Latest News</h2>
-
-        <div class="news-item">
-            <strong><!-- EDIT --> Olympiad 2026 Announced</strong>
-            <p>The competition will take place in <!-- city -->.</p>
+        <!-- ABOUT -->
+        <div class="card">
+            <h2>About</h2>
+            <p>
+                <!-- EDIT -->
+                This platform hosts results, problems, and statistics
+                for the Local Mathematical Olympiad.
+            </p>
         </div>
 
-        <div class="news-item">
-            <strong>Results Released</strong>
+        <!-- NEWS -->
+        <div class="card">
+            <h2>Latest News</h2>
+
+            <p><strong>Olympiad 2026 announced</strong></p>
+            <p>The competition will take place in <!-- city -->.</p>
+
+            <p><strong>Results published</strong></p>
             <p>Final rankings are now available.</p>
         </div>
 
-        <div class="news-item">
-            <strong>New Problems Added</strong>
-            <p>Check out the latest problem set.</p>
+        <!-- RESULTS PREVIEW -->
+        <div class="card">
+            <h2>Top Results (Preview)</h2>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>School</th>
+                    <th>Score</th>
+                </tr>
+
+                <!-- EDIT -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>High School #1</td>
+                    <td>42</td>
+                </tr>
+
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>High School #2</td>
+                    <td>40</td>
+                </tr>
+            </table>
         </div>
 
     </div>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
     © 2026 Local Mathematical Olympiad
 </footer>
