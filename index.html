@@ -155,6 +155,15 @@ footer {
     margin-bottom: 10px;
 }
 
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #002147, #00509e);
+    padding: 15px 30px;
+    color: white;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
     .wrapper {
@@ -171,7 +180,7 @@ footer {
 
 <body>
 
-<header>
+<header class="topbar">
 
     <div class="title" onclick="location.href='index.html'">
         Olimpiade Școlare din municipiu Chișinău
@@ -187,7 +196,7 @@ footer {
     <div class="theme-toggle" onclick="toggleTheme()"></div>
 
 </header>
-
+    
 <div class="wrapper">
 
     <!-- LEFT NEWS -->
