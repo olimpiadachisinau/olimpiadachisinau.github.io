@@ -5,69 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Olimpiade Școlare Chișinău</title>
 <style>
+/* ===== RESET ===== */
+* { margin:0; padding:0; box-sizing:border-box; font-family: "Segoe UI", Arial, sans-serif; }
+body { background:#f9f9f9; color:#111; line-height:1.6; }
+
 /* ===== HEADER ===== */
 header {
-    background: linear-gradient(90deg, #002147, #00509e);
-    color: white;
-    padding: 20px 40px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color:white;
+    padding: 40px 30px;
+    text-align:center;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-
 header h1 {
-    margin: 0;
-    font-size: 28px;
-    cursor: pointer;
+    font-size:2.5rem;
+    margin-bottom:10px;
+    cursor:pointer;
 }
 
 /* ===== NAVBAR ===== */
 nav {
-    background: #003366;
-    padding: 10px 40px;
+    display:flex;
+    justify-content:center;
+    background:#2a5298;
+    padding:10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 nav a {
-    color: white;
-    margin-right: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    transition: 0.3s;
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:600;
+    padding:8px 15px;
+    border-radius:8px;
+    transition: all 0.3s ease;
+}
+nav a:hover {
+    background:white;
+    color:#2a5298;
+    transform:translateY(-2px);
 }
 
-/* Hover underline */
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background: white;
-    transition: width 0.3s;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* Theme toggle icon */
+/* ===== THEME TOGGLE ===== */
 .theme-toggle {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: linear-gradient(90deg, white 50%, black 50%);
-    border: 1px solid white;
-    cursor: pointer;
-    margin-left: 20px;
+    position:absolute;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    width:28px; height:28px;
+    border-radius:50%;
+    border:2px solid white;
+    background:linear-gradient(90deg, #fff 50%, #000 50%);
+    cursor:pointer;
 }
 
-/* RESPONSIVE */
-@media(max-width: 768px) {
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-    .theme-toggle { margin-left: 0; margin-top: 10px; }
+/* ===== MAIN ===== */
+main {
+    display:flex;
+    max-width:1200px;
+    margin:30px auto;
+    gap:30px;
+    padding:0 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width:300px;
+}
+.sidebar h2 {
+    margin-bottom:15px;
+    color:#2a5298;
+    border-bottom:2px solid #2a5298;
+    padding-bottom:5px;
+}
+.news-card {
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+.news-card:hover { transform:translateY(-2px); }
+
+/* ===== CONTENT ===== */
+.content { flex:1; }
+section { margin-bottom:40px; }
+section h2 {
+    margin-bottom:20px;
+    color:#1e3c72;
+}
+.grid-buttons {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+    gap:10px;
+}
+.grid-buttons button {
+    padding:12px;
+    background:#2a5298;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.grid-buttons button:hover {
+    background:#1e3c72;
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background:#1e3c72;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:50px;
+}
+footer .log { margin-bottom:10px; font-size:0.9rem; opacity:0.8; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    main { flex-direction:column; }
+    .sidebar { width:100%; }
 }
 </style>
 </head>
@@ -75,6 +137,7 @@ nav a:hover::after {
 
 <header>
     <h1 onclick="location.href='index.html'">Olimpiade Școlare din municipiu Chișinău</h1>
+    <div class="theme-toggle" onclick="document.body.classList.toggle('dark')"></div>
 </header>
 
 <nav>
@@ -82,8 +145,83 @@ nav a:hover::after {
     <a href="noutati.html">Noutăți</a>
     <a href="clasament.html">Clasament</a>
     <a href="regulament.html">Regulament</a>
-    <div class="theme-toggle" onclick="document.body.classList.toggle('dark')"></div>
 </nav>
+
+<main>
+    <aside class="sidebar">
+        <h2>Noutăți recente</h2>
+        </div>
+        <div class="news-card">
+            <h3>Olimpiada Republicană la Limbile străine (engleză și spaniolă).</h3>
+            <p>Se va desfășura între 03.03 - 05.03</p>
+        </div>
+        <div class="news-card">
+            <h3>Olimpiada Republicană la Fizică. Rezultate.</h3>
+            <p>S-a desfășurat între 27.03 - 30.03</p>
+        <div class="news-card">
+            <h3>A fost creat site-ul</h3>
+            <p>A fost creat pe 31.03</p>
+        </div>
+    </aside>
+
+    <div class="content">
+        <section>
+            <h2>Despre site</h2>
+            <p>Acest site are ca scop ajutarea elevilor pentru sistematizarea și organizarea rezulatelor olimpiadelor din Chișinău a elevilor participanți.</p>
+        </section>
+
+        <section>
+            <h2>Etapa Sector</h2>
+            <div class="grid-buttons">
+                <!-- 15 butoane -->
+                <button>Matematică</button>
+                <button>Informatică</button>
+                <button>Chimie</button>
+                <button>Biologie</button>
+                <button>Fizică</button>
+                <button>Limba și literatura Rusă</button>
+                <button>Limba și literatura Română</button>
+                <button>Limba Franceză</button>
+                <button>Limba Engleză</button>
+                <button>Geografie</button>
+                <button>Istoria românilor și universală</button>
+                <button>Educația Plastică</button>
+                <button>Educația Tehnologică</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Etapa Municipală</h2>
+            <div class="grid-buttons">
+                <!-- 14 butoane -->
+                <button>Economie</button>
+                <button>Științe</button>
+                <button>Matematică</button>
+                <button>Informatică</button>
+                <button>Chimie</button>
+                <button>Biologie</button>
+                <button>Fizică</button>
+                <button>Limba și literatura Rusă</button>
+                <button>Limba și literatura Română</button>
+                <button>Limba Franceză</button>
+                <button>Limba Germană</button>
+                <button>Limba Engleză</button>
+                <button>Limba Spaniolă</button>
+                <button>Geografie</button>
+                <button>Istoria românilor și universală</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="log">Ultima modificare: 31.03.2026 — Structură modernizată</div>
+    © 2026 Mîrza Damian
+</footer>
+
+<script>
+function toggleTheme() { document.body.classList.toggle('dark'); }
+</script>
 
 </body>
 </html>
